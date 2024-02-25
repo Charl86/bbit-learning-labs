@@ -1,6 +1,13 @@
 # Buy Share Functionality
+1. [Instructions](#instructions)
+2. [Extended Instructions](#extended-instructions)
+3. [Solutions](#solutions)
 
 ## Instructions
+
+If you are following the extended instructions, go to the [extended instructions section](#extended-instructions).
+
+### Dynamic CSS Rows
 
 We are going to use some of the knowledge learned in the previous lab, in order to implement functionality in our app to buy and sell shares.
 
@@ -14,6 +21,8 @@ This same `div` element as the `grid-rows-1` CSS class, which only allocates one
 
 The attribute where you can find the CSS classes in the `div` element mentioned above is already in JavaScript expression syntax, and using backticks (\`\`). You can use a JavaScript expression inside backticks by opening it with `${...}`.
 
+### Select a Share
+
 Next, write the following code inside the `div` element with the `className` attribute set to `contents`:
 ```jsx
 { (!selectedShare) ? '' : <SelectedShareWindow selectedShare={selectedShare} handleOpenSelectedShareWindow={handleOpenSelectedShareWindow} /> }
@@ -24,3 +33,21 @@ Next, write the following code inside the `div` element with the `className` att
 * Make sure to import the `SelectedShareWindow` and the `BuyWindow` components, that we provide for you, into the file
 
 Additionally, insert the `col-span-3` CSS class the `div` element that has the child text "Your change".
+
+## Extended Instructions
+
+If you have more experience with software development, follow these instructions to make it for a more challenging task.
+
+Follow instructions for the [Dynamic CSS Rows](#dynamic-css-rows) section. Then, continue here.
+
+Find the `div` element with the CSS class of `contents`. Inside this `div`, do the following:
+1. Write a JSX expression that, if the variable `selectedShare` is [falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy), returns the empty string, else returns a `SelectedShareWindow` component. This component takes as parameters a `selectedShare` and the `handleOpenShareWindow` function, make sure to pass these
+2. Write a JSX expression that, if the variable `revealBuyWindow` is falsy, or if the `selectedShare` variable is falsy as well, returns the empty string. Else, it returns a `BuyWindow` component (we provide for you). This component takes as parameters the `selectedShare`, the `hardCodedUserAmount`, the `setHardCodedUserAmount`, the `portfolioValue`, the `updatePortfolioValue`, and the `handleCloseWindow` variables. All of these should be defined (except `handleCloseWindow`), so make sure to pass them as props to this component
+    * For `handleCloseWindow`, pass in a JavaScript anonymous function that takes zero arguments and calls `setRevealBuyWindow` with a value of `false`
+
+## Solutions
+This is how your work should look like after completing this task:
+
+![Solution Picture Lab 3](./Solution-Picture-Lab-3.png)
+
+You can also take a look at the `Solution` directory for reference.
