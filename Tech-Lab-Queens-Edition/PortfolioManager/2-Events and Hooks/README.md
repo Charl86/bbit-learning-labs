@@ -74,7 +74,7 @@ useEffect(() => {
 fetch(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/${process.env.NEXT_PUBLIC_API_BASE}/get_shares`)
     .then((res) => res.json())
     .then((data) => {
-        const _shares = data["shares"];
+        const _shares = data;
         setShares(_shares);
         setLoading(false);
     })
@@ -181,7 +181,7 @@ In the `index.jsx`, inside the body of the `Home` component, do the following:
     fetch(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/${process.env.NEXT_PUBLIC_API_BASE}/get_shares`)
         .then((res) => res.json())
         .then((data) => {
-            const _shares = data["shares"];
+            const _shares = data;
             setShares(_shares);
             setLoading(false);
         })

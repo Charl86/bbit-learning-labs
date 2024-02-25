@@ -49,7 +49,7 @@ export default function Home() {
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/get_shares`)
       .then((res) => res.json())
       .then((data) => {
-        const _shares = data["shares"];
+        const _shares = data;
         setShares(_shares);
         setLoading(false);
       })
