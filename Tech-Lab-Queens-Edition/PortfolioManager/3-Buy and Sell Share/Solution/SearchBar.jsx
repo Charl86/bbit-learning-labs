@@ -6,7 +6,7 @@ import useSWR from "swr";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function SearchBar({ updateSelectedShare, resetSelectedShare }) {
-  const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/${process.env.NEXT_PUBLIC_API_BASE}/get_share_names`, fetcher);
+  const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/get_share_names`, fetcher);
   const stockNames = data ? data["records"] : [];
   const [enableShareDropdown, setEnableShareDropdown] = useState(false);
   const stockInputRef = useRef(null);
