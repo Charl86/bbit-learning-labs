@@ -1,16 +1,20 @@
 # Portfolio Learning Item
+1. [What is a portfolio](#what-is-a-portfolio)
+2. [Instructions](#instructions)
+3. [Solutions](#solutions)
+
 ## What is a portfolio
 A portfolio is a collection of these accounts, but also is any collection of investments/financial assets, including stock, bonds, derivatives, ETFs, etc. Accounts are technically a portfolio, but large firms will usually have multiple accounts with different trading strategies. The collection of these accounts represents their portfolio.
 
-For example, I could have account Tech Strategy which contains the positions:
+For example, I could have account tech strategy which contains the positions:
 
-*2,000* shares of *MSFT USD, 200* shares of *AAPL USD, and 100* shares of *TSLA USD*
+*2,000* shares of *MYSHR USD, 200* shares of *YRSHR USD, and 100* shares of *HSSHRE USD*
 
-And an account Healthcare Strategy which contains the positions:
+And an account healthcare strategy which contains the positions:
 
-*1,000* shares of *UNH USD, 200* shares of *HCA USD, and 100* shares of *MSFT USD*
+*1,000* shares of *HRSHRE USD, 200* shares of *ORSHRE USD, and 100* shares of *MYSHR USD*
 
-The entire portfolio is the union of these two accounts. It's important to note that accounts within a portfolio don't need to be mutually exclusive in their positions.
+The entire portfolio is the union of these two accounts. It's important to note that accounts within a portfolio need not be mutually exclusive in their positions.
 
 ## Instructions
 
@@ -56,7 +60,7 @@ Replace the `<Share>` component JSX expression that you had in the `your-nextjs-
 * Hint: Use the `map` method of an array to build a JavaScript expression that yields an array of `Share` component instances. An example of this syntax would be `shares.map(share, idx) => <Share ...></Share>`
 * Don't forget to pass an `idx` prop to the `Share` component
 
-## Bonus Lab
+## Bonus Minilab
 
 Using the following function:
 ```jsx
@@ -74,3 +78,10 @@ function getOneDayChangeCSSClass() {
 ```
 
 Can you you style the `oneDChange` value of the share in the `your-nextjs-app/src/components/Share.jsx`? The function yields a green color class if the `oneDChange` is greater than 0, red if it is less than 0, and orange otherwise. Use this function somewhere in the `div` element that contains the `oneDChange` to apply the result of this function. Additionally, if the `oneDChange` is positive, prepend a "+" sign to it, and if it is negative, prepend a "-" sign to it.
+
+## Solutions
+This is how your work should look like after completing this task:
+
+![Solution Picture Lab 4](./Solution-Picture-Lab-4.png)
+
+You can also take a look at the `Solution` directory for reference.
