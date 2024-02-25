@@ -1,4 +1,10 @@
 # Events, Event Handlers and Hooks
+1. [Event handlers](#event-handlers)
+2. [React Hooks](#react-hooks)
+3. [Instructions](#instructions)
+4. [Props](#props)
+5. [Extended instructions](#extended-instructions)
+6. [Solutions](#solutions)
 
 By now you have a basic table that contains a fixed share that you created using a share component, as well as a search bar. The search bar, however, isn't very functional at the moment. We can fix that by defining event handlers, that respond to events, as well as hooks, in order to make the search bar, and the website as a whole, more functional and dynamic.
 
@@ -20,6 +26,8 @@ You are going to be modifying the following files:
 * `your-nextjs-app/src/pages/index.jsx`
 * `your-nextjs-app/src/components/SearchBar.jsx`
 * `your-nextjs-app/src/components/SearchBarCloseButton.jsx`
+
+If you are following the extended instructions, go to the [extended instructions section](#extended-instructions).
 
 In order to simplify the process and maintain focus on the frontend portion of this app, we are going to provide some starting code.
 
@@ -44,8 +52,8 @@ async function updateSelectedShare(shareSymbol, shareName) {
     fetch(`http://localhost/wp-json/techlabs/v1/get_share_price/${shareSymbol}`)
         .then(res => res.json())
         .then(data => {
-        const sharePrice = data["sharePrice"];
-        setSelectedShare({ symbol: shareSymbol, name: shareName, sharePrice });
+            const sharePrice = data["sharePrice"];
+            setSelectedShare({ symbol: shareSymbol, name: shareName, sharePrice });
         });
 }
 
@@ -66,12 +74,12 @@ useEffect(() => {
 fetch(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/${process.env.NEXT_PUBLIC_API_BASE}/get_shares`)
     .then((res) => res.json())
     .then((data) => {
-    const _shares = data["shares"];
-    setShares(_shares);
-    setLoading(false);
+        const _shares = data["shares"];
+        setShares(_shares);
+        setLoading(false);
     })
     .catch(error => {
-    console.log(error);
+        console.log(error);
     });
 });
 ```
@@ -109,10 +117,12 @@ export default function Home() {
 ```
 * We use JSX expression notation to reference JavaScript expressions (such as variables) inside HTML elements, with the use of curly braces \{ \}
 
+#### Calling React Hooks
+
 In the `index.jsx`, you called the `SearchBar` without any props being passed. Now, you will need to pass the `updateSelectedShare`, `resetSelectedShare` and `setEnableShareDropdown` functions as props to the component. Make sure to also define the `updateSelectedShare` and `resetSelectedShare` functions as props in the `SearchBar.jsx`.
 
 After this, pass all 3 functions mentioned above as props to the `SearchBarCloseButton` component, and make sure to define these functions as props in the `SearchBarCloseButton` component definition.
-* In order to make the clear button fully functional, remote the `disabled={true}` expression from the `button` element
+* In order to make the clear button fully functional, remove the `disabled={true}` expression from the `button` element
 
 Additionally, for the `input` element of your `SearchBar` component, do the following changes:
 1. Set the `value` attribute to:
@@ -134,3 +144,61 @@ event => updateShareFieldValue(event.target.value)
 () => setEnableShareDropdown(true)
 ```
 * This makes it so, when someone starts typing in the search bar, a suggestions window pops up with suggested shares, based on the current input string
+
+## Extended Instructions
+If you have more experience with software development, follow these instructions to make it for a more challenging task.
+
+In the `index.jsx`, inside the body of the `Home` component, do the following:
+1. Define a React `useState` hook with variable name `shares` and auxiliary function `setShares`. Set the initial state of the variable to an empty array
+    * The general syntax for defining a React `useState` hook is the following:
+        ```jsx
+            const [variableName, setVariableName] = useState("initial variable value");
+        ```
+2. Define a React `useState` hook with variable name `isLoading` and its corresponding auxiliary function. Set its initial state to `true`
+3. Define a React `useState` hook with variable name `selectedShare` and its corresponding auxiliary function. Set its initial state to `null`
+4. Define a React `useState` hook with variable name `revealBuyWindow` and its corresponding auxiliary function. Set its initial state to `false`
+5. Define an `async` function called `updateSelectedShare` that, given a share symbol and share name as parameters, does the following:
+    * If the share symbol is not defined or null, do not continue function execution
+    * Else, make a `fetch` call to the API endpoint `http://localhost/wp-json/techlabs/v1/get_share_price/${shareSymbol}`, where `shareSymbol` is the parameter name for the share symbol. Unpack the response using the `.json()` method
+    * The result of using the `json()` method will be an object with a key-value pair of `sharePrice`
+    * Extract this key-value pair, and call the `setSelectedShare` auxiliary function. The argument you should pass to this function is a JavaScript object of the following structure:
+        ```
+            {
+                "symbol": <share symbol>,
+                "name": <share name>,
+                "sharePrice": <share price>
+            }
+        ```
+        * where the values are the respective parameters of the original function, and the share price value is the one you just extracted
+    * For more information about using the `fetch` function, you can consult the MDN Web Documentation: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+6. Define the function `resetSelectedShare`, that calls `setSelectedShare` with a value of `null`
+7. Define the function `handleOpenSelectedShareWindow`, that calls `setRevealBuyWindow` with a value of `true`
+8. Define a function `updatePortfoliovalue`, with an object parameter that has keys `shareAmount` and `newPortfolioValue`, that calls `setHardCodedPortfolioValue` and passes `newPortfolioValue` as an argument
+9. Write the following code before the `return` statement:
+    ```jsx
+    // Load all shares owned by current user
+    useEffect(() => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/${process.env.NEXT_PUBLIC_API_BASE}/get_shares`)
+        .then((res) => res.json())
+        .then((data) => {
+            const _shares = data["shares"];
+            setShares(_shares);
+            setLoading(false);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    });
+    ```
+
+After accomplishing the above, continue from the [this section](#calling-react-hooks).
+
+Refer to the [props](#props) section for any questions regarding React props.
+
+## Solutions
+This is how your work should look like after completing this task:
+
+![Solution Picture Lab 2](./Solution-Picture-Lab-2.png)
+
+You can also take a look at the `Solution` directory for reference.
+
