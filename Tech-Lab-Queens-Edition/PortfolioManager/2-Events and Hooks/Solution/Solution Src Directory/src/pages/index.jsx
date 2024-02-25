@@ -27,7 +27,7 @@ export default function Home() {
     fetch(`http://localhost/wp-json/techlabs/v1/get_share_price/${shareSymbol}`)
       .then(res => res.json())
       .then(data => {
-        const sharePrice = data["sharePrice"];
+        const sharePrice = data;
         setSelectedShare({ symbol: shareSymbol, name: shareName, sharePrice });
       });
   }

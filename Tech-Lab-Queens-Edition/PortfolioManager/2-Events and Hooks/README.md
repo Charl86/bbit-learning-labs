@@ -52,7 +52,7 @@ async function updateSelectedShare(shareSymbol, shareName) {
     fetch(`http://localhost/wp-json/techlabs/v1/get_share_price/${shareSymbol}`)
         .then(res => res.json())
         .then(data => {
-            const sharePrice = data["sharePrice"];
+            const sharePrice = data;
             setSelectedShare({ symbol: shareSymbol, name: shareName, sharePrice });
         });
 }
@@ -160,8 +160,8 @@ In the `index.jsx`, inside the body of the `Home` component, do the following:
 5. Define an `async` function called `updateSelectedShare` that, given a share symbol and share name as parameters, does the following:
     * If the share symbol is not defined or null, do not continue function execution
     * Else, make a `fetch` call to the API endpoint `http://localhost/wp-json/techlabs/v1/get_share_price/${shareSymbol}`, where `shareSymbol` is the parameter name for the share symbol. Unpack the response using the `.json()` method
-    * The result of using the `json()` method will be an object with a key-value pair of `sharePrice`
-    * Extract this key-value pair, and call the `setSelectedShare` auxiliary function. The argument you should pass to this function is a JavaScript object of the following structure:
+    * The result of using the `json()` method will be the share price for the given share
+    * Save this value into a variable and call the `setSelectedShare` auxiliary function. The argument you should pass to this function is a JavaScript object of the following structure:
         ```
             {
                 "symbol": <share symbol>,
