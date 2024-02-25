@@ -20,7 +20,7 @@ A React component can be thought of as a collection of HTML code, that can be en
 
 The `input` HTML element is an object that allows interaction between the user and a part of a website. Using the `type` HTML attribute, one can change the type of the input (e.g. a button, a text field, etc.).
 
-You are going to make your changes in the `your-nextjs-app/src/components/SearchBar.jsx` file. There is going to be some existing code, to simplify the process. Make sure you add, under where it says *Work here*:
+You are going to make your changes in the `your-nextjs-app/src/components/SearchBar.jsx` file. There is going to be some existing code, to simplify the process. Make sure you add the following, under where it says *Work here*:
 1. A new `input` element, as well as
 2. The `SearchBarCloseButton` component that we provide for you in the `your-nextjs-app/src/components` directory (don't forget to import it!)
 
@@ -32,3 +32,15 @@ If you follow the steps above, you will end up with a search bar component alrig
     * This adds handy Tailwind CSS classes in order to improve the appearance and functionality of the search bar
 
 You will notice that the clear button of the input field doesn't quite work yet. In the next assignment, we are going to address that with the use of *props*.
+
+## Resources
+* https://www.w3schools.com/tags/default.asp
+* https://tailwindcss.com/docs/utility-first
+* https://react.dev/
+
+## Solutions
+This is how your work should look like after completing this task:
+
+![Solution Picture Lab 0](./Solution-Picture-Lab-1.png)
+
+You can also take a look at the `Solution` directory for reference.
