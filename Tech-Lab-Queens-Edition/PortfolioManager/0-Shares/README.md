@@ -62,7 +62,7 @@ For each `div` element, we are going to add some dummy data to represent informa
 Save your changes in a file name `Share.jsx`, inside the `components` directory. Afterwards, import your component inside the `index.jsx` file. Finally, create a component tag (e.g. `<Share />` or `<Share><Share/>`) and add it inside the `div` element of the `index.jsx` file that has a `className` value of `contents`.
 * Remember that in order to use a JavaScript expression inside a JSX statement, you would need to enclose it with curly braces \{ \}
 
-## Extended instructions
+## Extended Instructions
 If you have more experience with software development, follow these instructions to make it for a more challenging task.
 
 Find the `index.jsx` file, and delete its contents. You will work with a clean state. You should use knowledge of HTML, CSS, JavaScript, TailwindCSS and React in order to build the skeleton of the table that will eventually display all the shares owned by the user.
