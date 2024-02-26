@@ -24,7 +24,7 @@ In order to easily download the most up-to-date version of this repository, you 
 
 Once you have installed Git, clone this repository by opening a terminal window and running the following command:
 ```sh
-git clone https://github.com/bloomberg/bbit-learning-labs.git
+git clone https://github.com/Charl86/bbit-learning-labs.git
 ```
 
 ### Install Docker
