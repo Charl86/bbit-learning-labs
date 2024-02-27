@@ -17,7 +17,7 @@ Below are bullet points of the criteria:
 
 ## Testing
 In order to verify that the consumer and producer class was properly instantiated, we will use the provided  `consume.py`, and `publish.py` file from producer and consumer folder. Follow the below instructions:
-1. In the terminal window, run the `consume.py` file from the consumer sectio using the python interpreter.
+1. In the terminal window, run the `consume.py` file from the consumer section using the python interpreter.
 2. In another terminal window, run the `publish.py` file from the producer section using the python interpreter. This will publish a message using RabbitMQ. 
 3. Return to the first terminal window with the consumer running. "Success! Producer And Consumer Section Complete." should now be displayed on your terminal if you instantiated & implemented the consumer class correctly.
 * Note that if you are developing from the terminal in your IDE, inside the second terminal window you will need to step into the rmq_lab Docker container in order to access the python enviroment. We do this by first running the `docker exec -it [containterName\containerID] /bin/bash` command. Using the `docker ps -a` command will show all the running docker containers and their associated I.D and names. Your command could be `docker exec -it tech-lab-on-campus-rmq_lab-1 /bin/bash` or `docker exec -it 8a785d10fd7e /bin/bash`
