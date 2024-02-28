@@ -71,7 +71,7 @@ function updatePortfolioValue({ shareAmount, newPortfolioValue }) {
 
 // Load all shares owned by current user
 useEffect(() => {
-fetch(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/${process.env.NEXT_PUBLIC_API_BASE}/get_shares`)
+fetch(`${process.env.NEXT_PUBLIC_API_URL}/get_shares`)
     .then((res) => res.json())
     .then((data) => {
         const _shares = data;
@@ -178,7 +178,7 @@ In the `index.jsx`, inside the body of the `Home` component, do the following:
     ```jsx
     // Load all shares owned by current user
     useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}:${process.env.NEXT_PUBLIC_API_PORT}/${process.env.NEXT_PUBLIC_API_BASE}/get_shares`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/get_shares`)
         .then((res) => res.json())
         .then((data) => {
             const _shares = data;
